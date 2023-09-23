@@ -14,6 +14,12 @@ $routes->add('blog_post_create', new Routing\Route('/blog', [
     '_controller' => 'Crimsoncircle\Controller\BlogController::store',
 ]));
 
+// DELETE delete a post
+$routes->add('blog_post_delete', new Routing\Route('/blog/{slug}', [
+    'slug' => null,
+    'methods' => ['DELETE'],
+    '_controller' => 'Crimsoncircle\Controller\BlogController::delete',
+], array(), array(), '', array(), array('DELETE')));
 
 // GET search post
 $routes->add('blog_post_search', new Routing\Route('/blog/{slug}', [
@@ -22,15 +28,7 @@ $routes->add('blog_post_search', new Routing\Route('/blog/{slug}', [
     '_controller' => 'Crimsoncircle\Controller\BlogController::search',
 ]));
 
-// DELETE delete a post
-$routes->add('blog_post_delete', new Routing\Route('/blog/delete/{slug}', [
-    'slug' => null,
-    'methods' => ['DELETE'],
-    '_controller' => 'Crimsoncircle\Controller\BlogController::delete',
-    'requirements'=> [
-        '_method' => 'DELETE'
-    ]
-]));
+
 
 
 // POST new comment
@@ -39,14 +37,7 @@ $routes->add('blog_comment_create', new Routing\Route('/comment', [
     '_controller' => 'Crimsoncircle\Controller\CommentController::store',
 ]));
 
-// GET search post
-$routes->add('blog_comment_search_by_id', new Routing\Route('/comment/{id}', [
-    'id' => null,
-    'methods' => ['GET'],
-    '_controller' => 'Crimsoncircle\Controller\CommentController::searchById',
-]));
-
-// DELETE delete a post
+// DELETE delete a comment
 $routes->add('blog_comment_delete', new Routing\Route('/comment/delete/{id}', [
     'id' => null,
     'methods' => ['DELETE'],
@@ -54,7 +45,16 @@ $routes->add('blog_comment_delete', new Routing\Route('/comment/delete/{id}', [
     'requirements'=> [
         '_method' => 'DELETE'
     ]
+], array(), array(), '', array(), array('DELETE')));
+
+// GET search comment
+$routes->add('blog_comment_search_by_id', new Routing\Route('/comment/{id}', [
+    'id' => null,
+    'methods' => ['GET'],
+    '_controller' => 'Crimsoncircle\Controller\CommentController::searchById',
 ]));
+
+
 
 
 // GET 10 comments per page for a post_id
