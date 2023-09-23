@@ -1,0 +1,23 @@
+{
+    "name": "crimsoncircle/app",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Juan Carlos Juarez",
+            "email": "jcarlosjl@crimsoncircle.com"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation": "^6.2",
+        "symfony/routing": "^6.2",
+        "symfony/http-kernel": "^6.2",
+        "symfony/event-dispatcher": "^6.2",
+        "symfony/dependency-injection": "^6.2",
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Crimsoncircle\\": "src/"
+        }
+    }
+}
